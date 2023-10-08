@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import RoomsContext from "../roomsContext";
-
-const selectOptions = ["Title", "Location", "Bedrooms", "Bathrooms"];
+import RoomsContext from "@/roomsContext";
+import { filterSelectOptions } from "@/constants";
 
 export default function FilterBar() {
 	const { setSort, sort } = useContext(RoomsContext);
@@ -27,7 +26,7 @@ export default function FilterBar() {
 					<MenuItem value="">
 						<em>None</em>
 					</MenuItem>
-					{selectOptions.map((item) => {
+					{filterSelectOptions.map((item) => {
 						return (
 							<MenuItem key={item} value={item.toLowerCase()}>
 								{item}

@@ -14,21 +14,12 @@ import {
 } from "@mui/material";
 import GenericDrawer from "@/components/GenericDrawer";
 import CustomSearchBar from "@/components/SearchInput";
+import {
+	headerLargeDisplay,
+	headerMenuOptions,
+	headerSmallDisplay,
+} from "@/constants";
 import RoomsContext from "@/roomsContext";
-
-const menuOptions = [
-	{
-		buttonName: "My Rooms",
-		options: ["Manage Rooms", "History"],
-	},
-	{
-		buttonName: "Help",
-		options: ["FAQ", "Chat with BOT", "Chat with Agent"],
-	},
-];
-
-const smallDisplay = { xs: "flex", sm: "none" };
-const largeDisplay = { xs: "none", sm: "flex" };
 
 export default function MobileHeader() {
 	const { search, setPage, setSearch } = useContext(RoomsContext);
@@ -98,7 +89,7 @@ export default function MobileHeader() {
 			<>
 				<CottageIcon
 					sx={{
-						display: size === "small" ? smallDisplay : largeDisplay,
+						display: size === "small" ? headerSmallDisplay : headerLargeDisplay,
 						mr: 1,
 					}}
 				/>
@@ -109,7 +100,7 @@ export default function MobileHeader() {
 					onClick={clearSearch}
 					sx={{
 						color: "inherit",
-						display: size === "small" ? smallDisplay : largeDisplay,
+						display: size === "small" ? headerSmallDisplay : headerLargeDisplay,
 						fontFamily: "BlinkMacSystemFont",
 						fontWeight: 700,
 						mr: 2,
@@ -128,13 +119,17 @@ export default function MobileHeader() {
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
 					<GenericDrawer
-						data={menuOptions}
+						data={headerMenuOptions}
 						onClose={() => setDrawerOpen(false)}
 						open={drawerOpen}
 					/>
 					{renderTitle("large")}
 					<Box
-						sx={{ flexGrow: 1, display: smallDisplay, alignItems: "center" }}
+						sx={{
+							flexGrow: 1,
+							display: headerSmallDisplay,
+							alignItems: "center",
+						}}
 					>
 						<IconButton
 							aria-controls="menu-appbar"
@@ -148,8 +143,8 @@ export default function MobileHeader() {
 						</IconButton>
 						{renderTitle("small")}
 					</Box>
-					<Box sx={{ flexGrow: 1, display: largeDisplay }}>
-						{menuOptions.map((option) => {
+					<Box sx={{ flexGrow: 1, display: headerLargeDisplay }}>
+						{headerMenuOptions.map((option) => {
 							return renderLargeMenuBtns(option);
 						})}
 					</Box>
