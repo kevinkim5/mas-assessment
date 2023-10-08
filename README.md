@@ -3,6 +3,17 @@
 This repository contains the codes for the frontend and backend for the technical assessment.
 There are specific READMEs in the frontend and backend folders to guide developers on setting up for development.
 
+## Functions Implemented
+
+- Top Navigation with Menu and Search Bar
+- API Calls to retrieve Data
+- Body section with 12 result cards
+- Pagination with API
+- Sorting function - Title, Location, Bathrooms, Bedrooms
+- Search function - Search box with result list + modal to view result card
+- Material UI Components
+- Docker to build frontend and backend apps together
+
 ## Deployment using Docker
 
 This project uses Docker to build both the frontend and backend images and containers together.
