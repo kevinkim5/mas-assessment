@@ -1,0 +1,113 @@
+@header-height: 64px;
+@filter-height: 40px;
+
+* {
+	font-family: "Geomanist", "Open Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-mox-osx-font-smoothing: antialiased;
+	scroll-behavior: smooth;
+	margin: 0px;
+}
+
+.error-msg {
+	@media screen and (min-width: 600px) {
+		margin-top: calc(@header-height + 20px) !important;
+	}
+	@media screen and (max-width: 600px) {
+		margin-top: calc(56px + 10px) !important;
+	}
+}
+
+.flex-align-center {
+	align-items: center;
+	display: flex;
+}
+
+.header {
+	z-index: 999;
+
+	.hover {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+.filter-bar {
+	background-color: white;
+	position: fixed;
+	width: 100%;
+	z-index: 998;
+
+	@media screen and (min-width: 600px) {
+		padding-top: calc(@header-height + 10px);
+	}
+	@media screen and (max-width: 600px) {
+		padding-top: calc(56px + 10px);
+	}
+}
+
+.landing-page {
+	display: flex;
+	justify-content: center;
+
+	@media screen and (min-width: 600px) {
+		padding-top: calc(@header-height + @filter-height + 10px + 10px);
+	}
+	@media screen and (max-width: 600px) {
+		padding-top: calc(56px + @filter-height + 10px + 10px);
+	}
+}
+
+.spinner-wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: calc(100vh - 60px);
+	left: 0px;
+	position: absolute;
+	top: @header-height;
+	width: 100%;
+}
+
+.room-card {
+	border: none;
+	box-shadow: none !important;
+
+	.card-content {
+		padding-left: 0px;
+		padding-right: 0px;
+		padding-top: 6px;
+
+		.bath-bed-wrapper {
+			* {
+				margin-right: 10px;
+			}
+		}
+
+		.location-wrapper {
+			.location-icon {
+				margin-right: 10px;
+			}
+		}
+	}
+
+	.card-media {
+		border-radius: 4px;
+		width: 270px;
+	}
+
+	.dialog-media {
+		border-radius: 4px;
+	}
+}
+
+.search-result {
+	justify-content: center;
+	margin-top: calc(@header-height);
+	min-height: calc(100vh - @header-height);
+
+	.no-data {
+		padding-top: 10px;
+	}
+}
